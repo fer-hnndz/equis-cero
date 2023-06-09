@@ -64,6 +64,7 @@ public class UsuarioManager {
     
     public Usuario login(String username, String password) {
         for(Usuario user:usuarios) {
+            if (user == null) continue;
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) return user;
         }
         
