@@ -166,7 +166,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             return;
         }
         this.dispose();
-        new menuDeJuego();
+        new menuDeJuego().setVisible(true);
         
         // ABRIR MENU PRINCIPAL;
         

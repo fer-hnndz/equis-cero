@@ -163,7 +163,11 @@ public class Registro extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Ingrese una contraseña de 5 caracteres solamente"); return;
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Se ingreso el usuario de manera correcta");
-                userManager.registrar(username, password); return;
+                userManager.registrar(username, password);
+                IniciarSesion menu = new IniciarSesion();
+                menu.setUserManager(userManager);
+                menu.setVisible(true);
+                this.dispose();
             }
         }
     }//GEN-LAST:event_registrarActionPerformed
