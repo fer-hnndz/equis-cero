@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1280, 720]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1280, 720]"/>
+      <Dimension value="[862, 720]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -52,14 +52,14 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="286" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jButton2" max="32767" attributes="0"/>
-                              <Component id="jButton3" max="32767" attributes="0"/>
+                              <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton3" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
                       </Group>
@@ -125,7 +125,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PRESIONE PARA INICIAR SESION"/>
+            <Property name="text" type="java.lang.String" value="PRESIONE PARA JUGAR X-0"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -142,7 +142,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PRESIONE PARA REGISTRARSE"/>
+            <Property name="text" type="java.lang.String" value="PRESIONE PARA CERRAR SESI&#xd3;N"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
@@ -157,7 +157,7 @@
               <Color blue="cc" green="cc" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="MENU DE INICIO"/>
+            <Property name="text" type="java.lang.String" value="MENU DE JUEGO"/>
             <Property name="verticalAlignment" type="int" value="1"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>

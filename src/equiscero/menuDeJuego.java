@@ -8,12 +8,12 @@ package equiscero;
  *
  * @author levir
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class menuDeJuego extends javax.swing.JFrame {
 
     /**
-     * Creates new form MenuPrincipal
+     * Creates new form menuDeJuego
      */
-    public MenuPrincipal() {
+    public menuDeJuego() {
         initComponents();
     }
 
@@ -34,7 +34,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(862, 720));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -49,7 +49,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 102, 102));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 102));
-        jButton2.setText("PRESIONE PARA INICIAR SESION");
+        jButton2.setText("PRESIONE PARA JUGAR X-0");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -59,7 +59,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(0, 102, 102));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 102));
-        jButton3.setText("PRESIONE PARA REGISTRARSE");
+        jButton3.setText("PRESIONE PARA CERRAR SESIÓN");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -69,7 +69,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 204));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("MENU DE INICIO");
+        jLabel3.setText("MENU DE JUEGO");
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -151,20 +151,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuDeJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuDeJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuDeJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuDeJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new menuDeJuego().setVisible(true);
             }
         });
     }
