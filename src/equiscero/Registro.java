@@ -4,17 +4,20 @@
  */
 package equiscero;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author levir
  */
 public class Registro extends javax.swing.JFrame {
-
+    UsuarioManager userManager;
     /**
      * Creates new form Registro
      */
-    public Registro() {
+    public Registro(UsuarioManager userManager) {
         initComponents();
+        this.userManager=userManager;
     }
 
     /**
@@ -30,14 +33,13 @@ public class Registro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        registrar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        VolverLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -63,12 +65,12 @@ public class Registro extends javax.swing.JFrame {
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jButton1.setForeground(new java.awt.Color(255, 255, 102));
-        jButton1.setText("PRESIONE PARA REGISTRARSE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registrar.setBackground(new java.awt.Color(0, 102, 102));
+        registrar.setForeground(new java.awt.Color(255, 255, 102));
+        registrar.setText("PRESIONE PARA REGISTRARSE");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registrarActionPerformed(evt);
             }
         });
 
@@ -76,12 +78,12 @@ public class Registro extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
-        jButton2.setForeground(new java.awt.Color(255, 255, 102));
-        jButton2.setText("PRESIONE PARA REGERESAR AL MENU");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        VolverLogin.setBackground(new java.awt.Color(0, 102, 102));
+        VolverLogin.setForeground(new java.awt.Color(255, 255, 102));
+        VolverLogin.setText("PRESIONE PARA REGERESAR AL MENU");
+        VolverLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                VolverLoginActionPerformed(evt);
             }
         });
 
@@ -110,9 +112,9 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(187, 187, 187)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                 .addGap(70, 70, 70)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(VolverLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(165, 165, 165))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,8 +134,8 @@ public class Registro extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
+                    .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(VolverLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
                 .addGap(146, 146, 146))
         );
 
@@ -151,13 +153,27 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+        String username=jTextField1.getText();
+        String password=jTextField2.getText();
+        
+        userManager.buscarUsuario(username);
+        if (userManager.buscarUsuario(username)==null){
+            if (password.length()!=5){
+                JOptionPane.showMessageDialog(rootPane, "Ingrese una contraseña de 5 caracteres solamente"); return;
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Se ingreso el usuario de manera correcta");
+                userManager.registrar(username, password); return;
+            }
+        }
+    }//GEN-LAST:event_registrarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void VolverLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverLoginActionPerformed
+        IniciarSesion ini=new IniciarSesion();
+        ini.setUserManager(userManager);
+        ini.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_VolverLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,19 +205,19 @@ public class Registro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registro().setVisible(true);
+                new Registro(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton VolverLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton registrar;
     // End of variables declaration//GEN-END:variables
 }

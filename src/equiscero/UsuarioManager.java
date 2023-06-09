@@ -33,11 +33,9 @@ public class UsuarioManager {
         // Verificar que el usuario no exista
         
         if (buscarUsuario(username) != null) {
-            System.out.println("Usuario ya existe");
             return false;
         }
         
-        System.out.println("Usuario no existe");
         Usuario user = new Usuario(username, password);
         
         // Es el primer usuario en registrar

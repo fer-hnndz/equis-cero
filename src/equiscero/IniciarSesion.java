@@ -165,6 +165,8 @@ public class IniciarSesion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR. Credenciales incorrectas.");
             return;
         }
+        this.dispose();
+        new menuDeJuego();
         
         // ABRIR MENU PRINCIPAL;
         
@@ -182,7 +184,8 @@ public class IniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new Registro(userManager).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
