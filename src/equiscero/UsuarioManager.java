@@ -9,10 +9,16 @@ package equiscero;
  * @author Jorge Hernandez
  */
 public class UsuarioManager {
-    Usuario usuarios[] = new Usuario[1];
+    private Usuario usuarios[] = new Usuario[1];
+    private int usuariosActivos = 0;
 
     public UsuarioManager() {
     }
+
+    public int getUsuariosActivos() {
+        return usuariosActivos;
+    }
+    
     
     public Usuario buscarUsuario(String username) {
         for(Usuario user:usuarios) {
@@ -27,10 +33,19 @@ public class UsuarioManager {
         // Verificar que el usuario no exista
         
         if (buscarUsuario(username) != null) {
+            System.out.println("Usuario ya existe");
             return false;
         }
         
+        System.out.println("Usuario no existe");
         Usuario user = new Usuario(username, password);
+        
+        // Es el primer usuario en registrar
+        if (usuariosActivos == 0) {
+            usuarios[0] = user;
+            usuariosActivos++;
+            return true;
+        }
         
         // Actualizar el array
         int newSize = usuarios.length + 1;
@@ -43,6 +58,23 @@ public class UsuarioManager {
         
         // Agregar el usuario recien creado
         nuevosUsuarios[newSize - 1] = user;
+        usuariosActivos++;
         return true;
+    }
+    
+    public static void main(String[] args) {
+        
+        UsuarioManager manager = new UsuarioManager();
+        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
+        
+        manager.registrar("fella", "hola");
+        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
+
+        manager.registrar("fella", "adios");
+        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
+
+        manager.registrar("levi", "cornwall");
+        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
+
     }
 }
