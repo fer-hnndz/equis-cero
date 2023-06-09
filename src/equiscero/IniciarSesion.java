@@ -8,13 +8,18 @@ package equiscero;
  *
  * @author levir
  */
-public class IniciarSesion extends javax.swing.JFrame {
 
+import javax.swing.*;
+public class IniciarSesion extends javax.swing.JFrame {
+    UsuarioManager userManager;
+    
     /**
      * Creates new form IniciarSesion
      */
     public IniciarSesion() {
         initComponents();
+        
+        userManager = new UsuarioManager();
     }
 
     /**
@@ -130,8 +135,35 @@ public class IniciarSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setUserManager(UsuarioManager manager) {
+        this.userManager = manager;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String username = jTextField1.getText();
+        String password = jTextField2.getText();
+        
+        Usuario loggedUser = userManager.login(username, password);
+        
+        if (loggedUser == null) {
+            JOptionPane.showMessageDialog(null, "ERROR. Credenciales incorrectas.");
+            return;
+        }
+        
+        // ABRIR MENU PRINCIPAL;
+        
+        /*
+        if (password.length() > 5) {
+            JOptionPane.showMessageDialog(null, "ERROR. Su contrasena solo puede ser de 5 caracteres maximo.");
+        }
+        
+        Usuario result = userManager.registrar(username, password);
+        
+        if (result == false) {
+            JOptionPane.showMess
+        }
+        */
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

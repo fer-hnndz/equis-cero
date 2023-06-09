@@ -62,6 +62,14 @@ public class UsuarioManager {
         return true;
     }
     
+    public Usuario login(String username, String password) {
+        for(Usuario user:usuarios) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) return user;
+        }
+        
+        return null;
+    }
+    
     public static void main(String[] args) {
         
         UsuarioManager manager = new UsuarioManager();
