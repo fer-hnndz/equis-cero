@@ -15,13 +15,15 @@ import java.awt.event.ActionListener;
  */
 public class JuegoGUI extends javax.swing.JFrame {
 
+    UsuarioManager userManager;
     /**
      * Creates new form JuegoGUI
      */
     
     JButton casillas[][] = new JButton[3][3];
     boolean turnoX = true;
-    public JuegoGUI() {
+    public JuegoGUI(UsuarioManager manager) {
+        userManager = manager;
         initComponents();
         
         for (int row =0;row<3;row++){
@@ -62,11 +64,13 @@ public class JuegoGUI extends javax.swing.JFrame {
         String turno = (turnoX) ?"X":"0";
         if (ganador) {
             JOptionPane.showMessageDialog(null, "El ganador es jugador: " + turno);
+            new menuDeJuego(userManager).setVisible(true);
             this.dispose();
         }
         
         if (estaLleno()) {
             JOptionPane.showMessageDialog(null, "El juego ha terminado en empate.");
+            new menuDeJuego(userManager).setVisible(true);
             this.dispose();
         }
         turnoX = !turnoX;
@@ -248,7 +252,7 @@ public class JuegoGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JuegoGUI().setVisible(true);
+                new JuegoGUI(null).setVisible(true);
             }
         });
     }

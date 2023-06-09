@@ -8,12 +8,16 @@ package equiscero;
  *
  * @author levir
  */
-public class menuDeJuego extends javax.swing.JFrame {
 
+import javax.swing.*;
+public class menuDeJuego extends javax.swing.JFrame {
+    UsuarioManager userManager;
+    
     /**
      * Creates new form menuDeJuego
      */
-    public menuDeJuego() {
+    public menuDeJuego(UsuarioManager manager) {
+        userManager = manager;
         initComponents();
     }
 
@@ -127,11 +131,28 @@ public class menuDeJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        JOptionPane pop = new JOptionPane();
+        String usuarios[] = userManager.getAllUsernames();
+        JComboBox<String> combo = new JComboBox<String>(usuarios);
+        
+        if (usuarios.length == 1) {
+            JOptionPane.showMessageDialog(null, "ERROR. AL MENOS NECESITA DOS CUENTAS PARA JUGAR");
+            return;
+        }
+       
+        JOptionPane.showMessageDialog(null, combo);
+        int pos = combo.getSelectedIndex();
+        new JuegoGUI(userManager).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        userManager.logout();
+        IniciarSesion menu = new IniciarSesion();
+        menu.setUserManager(userManager);
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -164,7 +185,7 @@ public class menuDeJuego extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menuDeJuego().setVisible(true);
+                new menuDeJuego(null).setVisible(true);
             }
         });
     }

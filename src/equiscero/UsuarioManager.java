@@ -11,6 +11,7 @@ package equiscero;
 public class UsuarioManager {
     private Usuario usuarios[] = new Usuario[1];
     private int usuariosActivos = 0;
+    Usuario loggedUser;
 
     public UsuarioManager() {
     }
@@ -56,6 +57,7 @@ public class UsuarioManager {
         
         // Agregar el usuario recien creado
         nuevosUsuarios[newSize - 1] = user;
+        usuarios = nuevosUsuarios;
         usuariosActivos++;
         return true;
     }
@@ -63,25 +65,26 @@ public class UsuarioManager {
     public Usuario login(String username, String password) {
         for(Usuario user:usuarios) {
             if (user == null) continue;
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) return user;
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                loggedUser = user;
+                return user;
+            }
         }
         
         return null;
     }
     
-    public static void main(String[] args) {
+    public String[] getAllUsernames() {
+        String usernames[] = new String[usuarios.length];
         
-        UsuarioManager manager = new UsuarioManager();
-        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
+        for(int i =0;i<usuarios.length;i++){
+            usernames[i] = usuarios[i].getUsername();
+        }
         
-        manager.registrar("fella", "hola");
-        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
-
-        manager.registrar("fella", "adios");
-        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
-
-        manager.registrar("levi", "cornwall");
-        System.out.println("Usuarios Activos:" + manager.getUsuariosActivos());
-
+        return usernames;
+    }
+    
+    public void logout() {
+        loggedUser = null;
     }
 }

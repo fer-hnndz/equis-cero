@@ -166,7 +166,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             return;
         }
         this.dispose();
-        new menuDeJuego().setVisible(true);
+        new menuDeJuego(userManager).setVisible(true);
         
         // ABRIR MENU PRINCIPAL;
         
@@ -184,7 +184,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new Registro(userManager).setVisible(true);
+        new Registro(userManager).setVisible(true);        
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
